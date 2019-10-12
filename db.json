@@ -1,0 +1,52 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Changed hard drive on workstaion 005",
+      "attention": false,
+      "date": "03-02-2019",
+      "tech": "Sam Smith"
+    },
+    {
+      "id": 2,
+      "message": "Workstaion 007 not postin",
+      "attention": true,
+      "date": "03-02-2019",
+      "tech": "John Doe"
+    },
+    {
+      "id": 3,
+      "message": "Workstaion 004 crashed",
+      "attention": true,
+      "date": "03-02-2019",
+      "tech": "Syeda Ahmed"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstName": "Sam",
+      "lastName": "Smith"
+    },
+    {
+      "id": 2,
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": 3,
+      "firstName": "Syeda",
+      "lastName": "Ahmed"
+    },
+    {
+      "firstName": "will",
+      "lastName": "fort",
+      "id": 4
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "tom",
+      "id": 5
+    }
+  ]
+}
