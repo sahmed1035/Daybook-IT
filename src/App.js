@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
 
-function App() {
+// bringing materialize-css
+import "materialize-css/dist/css/materialize.min.css";
+// bringing in materialize javascript for models and stuff
+import M from "materialize-css/dist/js/materialize.min.js";
+
+import "./App.css";
+
+const App = () => {
+  // initializing Materialize JavaScript. Should be able to use Models
+  useEffect(() => {
+    M.AutoInit();
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Daybook IT</h1>
     </div>
   );
-}
+};
 
 export default App;
