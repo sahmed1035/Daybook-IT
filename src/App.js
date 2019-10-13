@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 
 // bringing materialize-css
 import "materialize-css/dist/css/materialize.min.css";
@@ -6,6 +6,8 @@ import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 import "./App.css";
+import SearchBar from "./components/layout/SearchBar";
+import Logs from "./components/logs/Logs";
 
 const App = () => {
   // initializing Materialize JavaScript. Should be able to use Models
@@ -15,7 +17,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Daybook IT</h1>
+      <Fragment>
+        <SearchBar />
+        <div className="container">
+          <Logs />
+        </div>
+      </Fragment>
     </div>
   );
 };
