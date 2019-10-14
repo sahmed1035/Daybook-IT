@@ -5,6 +5,9 @@ import "materialize-css/dist/css/materialize.min.css";
 // bringing in materialize javascript for models and stuff
 import M from "materialize-css/dist/js/materialize.min.js";
 
+import AddBtn from "./components/layout/AddBtn";
+import AddLogModal from "./components/logs/AddLogModal";
+
 import "./App.css";
 import SearchBar from "./components/layout/SearchBar";
 import Logs from "./components/logs/Logs";
@@ -20,6 +23,8 @@ const App = () => {
       <Fragment>
         <SearchBar />
         <div className="container">
+          <AddBtn />
+          <AddLogModal />
           <Logs />
         </div>
       </Fragment>
