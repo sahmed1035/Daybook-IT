@@ -8,7 +8,7 @@ const LogItem = ({ log }) => {
   return (
     <li className="collection-item">
       <div>
-        {/* log.message */}
+        {/* log.message  #edit-log-modal*/}
         <a
           href="#edit-log-modal"
           className={`modal-trigger ${

@@ -7,7 +7,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
  * useState hook and useEffect to call it.
  */
 
-const AddLogModal = () => {
+const EditLogModal = () => {
   // declearing initial states
   const [message, setMessage] = useState("");
   const [attention, seAttention] = useState(false);
@@ -29,10 +29,10 @@ const AddLogModal = () => {
   };
 
   return (
-    <div id="add-log-modal" className="modal" style={modalStyle}>
+    <div id="edit-log-modal" className="modal" style={modalStyle}>
       {/* modal content. heading. a row with input field with the value and onChange method calling setMessage to set whatever we type in.*/}
       <div className="modal-content">
-        <h4>Enter System Log</h4>
+        <h4>Edit System Log</h4>
         {/* fisrt row */}
         <div className="row">
           <div className="input-field">
@@ -107,4 +107,4 @@ const modalStyle = {
   height: "75%"
 };
 
-export default AddLogModal;
+export default EditLogModal;
