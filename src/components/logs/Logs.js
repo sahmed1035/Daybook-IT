@@ -1,38 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getLogs } from "../../actions/logActions";
 import LogItem from "./LogItem";
 import Preloader from "../layout/Preloader";
+import PropTypes from "prop-types";
 /**
  * make the request in the useEffect hook.
  * setLogs to change the state. an empty array by default
  * loading. since we are making a request to get the data
+ * destructuring props log from state.log that we brought in here through mapStateToProp
  */
-const Logs = () => {
-  // initializing our state for logs and loading.
-  const [logs, setLogs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+const Logs = ({ log: { logs, loading }, getLogs }) => {
   // calling getLogs function in the useEffect
   useEffect(() => {
     getLogs();
     // eslint-disable-next-line
   }, []); // passing an empty array becuase we want it to run only once.
 
-  // getLogs function to make the request to backend
-  const getLogs = async () => {
-    setLoading(true);
-    //making request through fetch API which returns a promise
-    const res = await fetch("/logs"); // don't need to write localhost/:5000 because we added proxy.
-    // formating data as json. it doesn't return json data like axios.
-    const data = await res.json();
-
-    // setting the logs to the data
-    setLogs(data);
-    setLoading(false);
-
-    if (loading) {
-      return <Preloader />;
-    }
-  };
+  if (loading || logs === null) {
+    return <Preloader />;
+  }
 
   return (
     /**
@@ -59,4 +46,22 @@ const Logs = () => {
   );
 };
 
-export default Logs;
+Logs.propTypes = {
+  log: PropTypes.object.isRequired,
+  getLogs: PropTypes.func.isRequired
+};
+
+/**
+ * to get anything from your app level state and bring to the component, you bring it as a prop.
+ * mapStateToProps we are mapping anything in our app level state to a local component prop.
+ * call this prop in the connect.
+ */
+const mapStateToProps = state => ({
+  //set an object and describe what we want to get from the state.
+  log: state.log // rootReducer variable name should be the same
+});
+// connects takes in two props, mapStatetoProps and any function we want to run
+export default connect(
+  mapStateToProps,
+  { getLogs }
+)(Logs);

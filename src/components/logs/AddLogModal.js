@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+
+// 1. bring in connect
+import { connect } from "react-redux";
+// 2. need PropTypes actions are prop and anything we bring from state
+import PropTypes from "prop-types";
+import { addLog } from "../../actions/logActions";
+
 //brining in materialize js for toast alert msg.
 import M from "materialize-css/dist/js/materialize.min.js";
 
@@ -7,7 +14,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
  * useState hook and useEffect to call it.
  */
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLog }) => {
   // declearing initial states
   const [message, setMessage] = useState("");
   const [attention, seAttention] = useState(false);
@@ -19,7 +26,18 @@ const AddLogModal = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter a message and tech." });
     } else {
-      console.log(message, tech, attention);
+      // create a new log
+      const newLog = {
+        message,
+        attention,
+        tech,
+        date: new Date()
+      };
+      // calling addLog action and passing in the newLog
+      addLog(newLog);
+
+      // putting material alert
+      M.toast({ html: `Log added by ${tech}` });
 
       // Clear fields
       setMessage("");
@@ -102,9 +120,17 @@ const AddLogModal = () => {
   );
 };
 
+//propTypes
+AddLogModal.propTypes = {
+  addLog: PropTypes.func.isRequired
+};
+
 const modalStyle = {
   width: "75%",
   height: "75%"
 };
-
-export default AddLogModal;
+// putting null for mapStateToProps as we are not bringing in any states. just actions
+export default connect(
+  null,
+  { addLog }
+)(AddLogModal);
