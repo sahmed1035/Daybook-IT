@@ -1,18 +1,11 @@
 {
   "logs": [
     {
-      "message": "station 009 needs update",
-      "attention": true,
-      "tech": "John Doe",
-      "date": "2019-10-16T22:43:14.997Z",
-      "id": 1
-    },
-    {
-      "message": "Fixed hard drive issue on the laptop",
+      "id": 2,
+      "message": "Testing UpdateLog Fixed hard drive issue on the laptop",
       "attention": false,
       "tech": "Syeda Ahmed",
-      "date": "2019-10-16T22:43:56.293Z",
-      "id": 2
+      "date": "2019-10-17T14:47:41.488Z"
     },
     {
       "message": "printer not working in the room 105",
