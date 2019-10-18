@@ -6,7 +6,8 @@ import {
   ADD_LOG,
   DELETE_LOG,
   SET_CURRENT,
-  CLEAR_CURRENT
+  CLEAR_CURRENT,
+  SEARCH_LOGS
 } from "./types";
 
 /**
@@ -127,6 +128,31 @@ export const updateLog = log => async dispatch => {
 
     dispatch({
       type: UPDATE_LOG,
+      payload: data
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.data
+    });
+  }
+};
+
+/**
+ * On json-server we can make a request to /logs?q Q parameter which is just query and whatever text we want.
+ * instead of filtering and storing the data in the filtered state, we are just hitting an endpoint to json-server.
+ */
+
+// Search Server Logs
+export const searchLogs = text => async dispatch => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/logs?q${text}`);
+    const data = await res.json();
+
+    dispatch({
+      type: SEARCH_LOGS,
       payload: data
     });
   } catch (err) {
