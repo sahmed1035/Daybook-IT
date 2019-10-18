@@ -1,43 +1,32 @@
 // fetch it from the backend from the component for now then we will move it to redux.
 import React, { useState, useEffect } from "react";
 import TechItem from "./TechItem";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getTechs } from "../../actions/techActions";
 
 /**
  * make the request in the useEffect hook.
  * setLogs to change the state. an empty array by default
  * loading. since we are making a request to get the data
  */
-const TechListModal = () => {
-  // initializing our state for techs and loading.
-  const [techs, setTechs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+const TechListModal = ({ getTechs, tech: { techs, loading } }) => {
   // calling getLogs function in the useEffect
   useEffect(() => {
     getTechs();
     // eslint-disable-next-line
   }, []); // passing an empty array becuase we want it to run only once.
 
-  // getLogs function to make the request to backend
-  const getTechs = async () => {
-    setLoading(true);
-    //making request through fetch API which returns a promise
-    const res = await fetch("/techs"); // don't need to write localhost/:5000 because we added proxy.
-    // formating data as json. it doesn't return json data like axios.
-    const data = await res.json();
-
-    // setting the techs to the data
-    setTechs(data);
-    setLoading(false);
-  };
+  // don't need to write localhost/:5000 because we added proxy.
 
   return (
     <div id="tech-list-modal" className="modal">
       <div className="modal-content">
         <h4>Technicians List</h4>
         <ul className="collection">
-          {/* before looping through each item make sure loading is done. */}
+          {/* before looping through each item make sure loading is done and techs is not null */}
           {!loading &&
+            techs !== null &&
             techs.map(tech => <TechItem tech={tech} key={tech.id} />)}
         </ul>
       </div>
@@ -54,4 +43,17 @@ const TechListModal = () => {
   );
 };
 
-export default TechListModal;
+// PropTypes
+TechListModal.propTypes = {
+  tech: PropTypes.object.isRequired,
+  getTechs: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  tech: state.tech
+});
+
+export default connect(
+  mapStateToProps,
+  { getTechs }
+)(TechListModal);
