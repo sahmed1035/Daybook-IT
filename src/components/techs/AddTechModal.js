@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 //brining in materialize js for toast alert msg.
 import M from "materialize-css/dist/js/materialize.min.js";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addTech } from "../../actions/techActions";
 
 /**
  * A form. so it has component level state.
  * useState hook and useEffect to call it.
+ *
+ * bring in connect.
+ * bring in propTypes
+ * bring in addTech
+ * put as a prop
+ * also set techs state as a prop
  */
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTech }) => {
   // declearing initial states
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,7 +27,14 @@ const AddTechModal = () => {
     if (firstName === "" || lastName === "") {
       M.toast({ html: "Please enter first and last name." });
     } else {
-      console.log(firstName, lastName);
+      addTech({
+        firstName,
+        lastName
+      });
+
+      M.toast({
+        html: `New tech ${firstName} ${lastName} is added in the tech list.`
+      });
 
       // Clear fields
       setFirstName("");
@@ -78,4 +94,12 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+//propTypes
+AddTechModal.propTypes = {
+  addTech: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { addTech }
+)(AddTechModal);

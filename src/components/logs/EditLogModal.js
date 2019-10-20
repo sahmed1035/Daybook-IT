@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { updateLog } from "../../actions/logActions";
 //brining in materialize js for toast alert msg.
 import M from "materialize-css/dist/js/materialize.min.js";
+import TechSelectOptions from "../techs/TechSelectOptions";
 
 /**
  * A form. so it has component level state.
@@ -84,10 +85,7 @@ const EditLogModal = ({ current, updateLog }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe"> John Doe</option>
-              <option value="Syeda Ahmed"> Syeda Ahmed</option>
-              <option value="Will Fort"> Will Fort</option>
-              <option value="Sam Smith"> Sam Smith</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
