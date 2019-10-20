@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 // 2. need PropTypes actions are prop and anything we bring from state
 import PropTypes from "prop-types";
 import { addLog } from "../../actions/logActions";
+import TechSelectOptions from "../techs/TechSelectOptions";
 
 //brining in materialize js for toast alert msg.
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -79,10 +80,7 @@ const AddLogModal = ({ addLog }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe"> John Doe</option>
-              <option value="Syeda Ahmed"> Syeda Ahmed</option>
-              <option value="Will Fort"> Will Fort</option>
-              <option value="Sam Smith"> Sam Smith</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
