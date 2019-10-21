@@ -10,10 +10,16 @@ import React from "react";
 
 const AddBtn = () => {
   return (
-    <div className="fixed-action-btn">
+    <div
+      className="fixed-action-btn tooltipped "
+      data-position="bottom"
+      data-tooltip="Add a Log"
+      style={{ marginBottom: "50px", marginRight: "40px" }}
+    >
       <a
         href="#add-log-modal"
-        className="btn-floating btn-large purple darken-2 scale-transition modal-trigger"
+        style={{ background: "#ef562d" }}
+        className="btn-floating btn-large scale-transition modal-trigger"
       >
         <i className="large material-icons">add</i>
       </a>
@@ -22,14 +28,21 @@ const AddBtn = () => {
         <li>
           <a
             href="#tech-list-modal"
-            className="btn-floating green modal-trigger"
+            className="btn-floating green modal-trigger tooltipped"
+            data-position="bottom"
+            data-tooltip=" Edit Tech List"
           >
             <i className="material-icons">person</i>
           </a>
         </li>
         {/* list item for the tech modal */}
         <li>
-          <a href="#add-tech-modal" className="btn-floating blue modal-trigger">
+          <a
+            href="#add-tech-modal"
+            className="btn-floating blue modal-trigger tooltipped"
+            data-position="bottom"
+            data-tooltip="Add a Tech"
+          >
             <i className="material-icons">person_add</i>
           </a>
         </li>

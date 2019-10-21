@@ -14,7 +14,7 @@ const SearchBar = ({ searchLogs }) => {
   };
 
   return (
-    <nav style={{ marginBottom: "30px" }} className="purple">
+    <nav style={{ marginBottom: "30px", background: "#5587a2" }}>
       <div className="nav-wrapper">
         <form>
           <div className="input-field">

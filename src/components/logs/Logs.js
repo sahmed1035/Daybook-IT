@@ -31,13 +31,13 @@ const Logs = ({ log: { logs, loading }, getLogs }) => {
      * else logs.map and for each log display a log item
      */
 
-    <ul className="collection with-header">
-      <li className="collection-header">
-        <h4 className="center">System Logs</h4>
+    <ul className="collection with-header z-depth-2">
+      <li className="collection-header ">
+        <h2 className="center ">System Logs</h2>
       </li>
 
       {!loading && logs.length === 0 ? (
-        <p className="center">No logs to show...</p>
+        <p className="center ">No logs to show...</p>
       ) : (
         logs.map(log => <LogItem log={log} key={log.id} />) // will display LogItem Component here.
         //passing in current log as a prop.

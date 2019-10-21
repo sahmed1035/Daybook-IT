@@ -15,13 +15,6 @@
       "id": 3
     },
     {
-      "message": "pc fixed station number 555",
-      "attention": false,
-      "tech": "Syeda Ahmed",
-      "date": "2019-10-16T22:45:26.057Z",
-      "id": 4
-    },
-    {
       "message": "changed network card on laptop 444",
       "attention": false,
       "tech": "Syeda Ahmed",
@@ -56,11 +49,6 @@
       "firstName": "will",
       "lastName": "fort",
       "id": 4
-    },
-    {
-      "firstName": "Josh",
-      "lastName": "tom",
-      "id": 5
     },
     {
       "firstName": "Jamal",

@@ -1,5 +1,5 @@
 // fetch it from the backend from the component for now then we will move it to redux.
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import TechItem from "./TechItem";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";

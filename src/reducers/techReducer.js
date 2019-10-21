@@ -33,6 +33,21 @@ export default (state = initialState, action) => {
         loading: false
       };
 
+    /**
+     * copy the current state. ...state
+     * set techs state "techs:"
+     *  "state.techs" will give us the current array.
+     * filter through. ".filter()"
+     * for each tech filter out where the tech.id is not equal to action.payload
+     * tech => tech.id !== action.payload
+     */
+
+    case DELETE_TECH:
+      return {
+        ...state,
+        techs: state.techs.filter(tech => tech.id !== action.payload),
+        loading: false
+      };
     case SET_LOADING:
       return {
         ...state,
