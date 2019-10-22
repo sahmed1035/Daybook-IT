@@ -5,7 +5,7 @@ A log could be edit and set to attention needed. Also the technicians could be a
 
 ## Link
 
-link to the site: [DayBook IT](https://sahmed1035.github.io/Daybook-IT/)
+link to the site: [IT Daybook](https://sahmed1035.github.io/Daybook-IT/)
 
 ### Technical Specification:
 
